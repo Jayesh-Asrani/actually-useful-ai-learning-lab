@@ -55,7 +55,6 @@ Representative services (language in parentheses):
 | 7 | [AI Observability — observe the agentic app](./Lab/07-ai-observability.md) | 20 min | Conversations, agents, token cost, evals for the shopping agents |
 | 8 | [Challenge: actually useful prompts](./Lab/08-assistant-challenge.md) | 15 min | Your best on-call prompts, shared with the room |
 
-Facilitators: see [`facilitator-guide.md`](./facilitator-guide.md) for the run-of-show, talk track, and k6 failure-injection cues.
 
 ## The capabilities you'll touch
 

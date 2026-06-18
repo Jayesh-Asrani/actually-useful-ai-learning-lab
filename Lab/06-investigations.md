@@ -9,15 +9,15 @@
 
 When you launch an investigation, a **lead investigator** plans the work and fans out specialized agents — **Prometheus** (metrics), **Loki** (logs), **Tempo** (traces), **Pyroscope** (profiles), and **SQL** — that gather evidence in parallel. A **reporter** compiles everything into a structured report: **Summary**, **Report**, **Timeline**, and **Activity** log.
 
-## Step 1 — Inject the failure yourself (k6)
+## Step 1 — The failure is injected (once, by your instructor)
 
-You'll break the app yourself by running a **k6 performance test**. The **"…With Failure"** and **"…Feature Flag Controller"** tests flip a failure scenario in the running app.
+Your instructor injects the failure **once for the whole room** by running a **k6 performance test** — **Trigger Service Restart with Failure** — in the `ecommerce` project (Testing & synthetics → Performance → Projects → `ecommerce` → open the test → **Run**). It restarts a service unhealthy and produces a clean error spike for everyone to investigate against the same window.
 
-1. Left nav → **Testing & synthetics → Performance → `ecommerce` project**.
-2. Open **Trigger Service Restart with Failure** (recommended for this exercise — it restarts a service unhealthy and gives a clean error spike to investigate).
-3. Click **Run**. **Note the time you started it** — you'll hand it to the Assistant as a timeframe.
+- **Note the start time your instructor announces** — you'll hand it to the Assistant as a timeframe.
+- No need to run anything yourself; everyone investigates the same incident.
 
-Other failure tests you can try later: **Broken DB Connection RCA Feature Flag Controller**, **Slow DB Query RCA Feature Flag Controller**, **Trigger Beta Rollout With Failure**. (Leave **Background Load** running so the failure has live traffic to affect.)
+> [!NOTE]
+> Want to see how it's triggered? Open **Testing & synthetics → Performance → `ecommerce`** and look at the test your instructor ran. Other failure scenarios live there too — **Broken DB Connection RCA Feature Flag Controller**, **Slow DB Query RCA Feature Flag Controller**, **Trigger Beta Rollout With Failure** — for the challenge round later.
 
 ## Step 2 — Ask the Assistant which service is affected
 
@@ -73,7 +73,7 @@ When the agents finish, review:
 - **Timeline** — agent tasks in order; useful for the post-incident review.
 - **Activity** — raw events, so you can reproduce any single step.
 
-**Validate it:** does the root cause match the failure you injected (the service restart)? Did it identify the right service and the downstream impact?
+**Validate it:** does the root cause match the injected failure (the service restart)? Did it identify the right service and the downstream impact?
 
 ## Step 7 — Turn findings into action
 
@@ -85,11 +85,11 @@ Convert this investigation into an incident summary I could post in Slack, and l
 
 ## Step 8 — Compare notes
 
-Compare your investigation’s root cause with a neighbour’s — did the agents converge on the same culprit? The restart test recovers on its own once it finishes; re-run a different failure test if you want another round.
+Compare your investigation’s root cause with a neighbour’s — did the agents converge on the same culprit? The restart test recovers on its own once it finishes; your instructor can run a different failure test (Broken DB Connection, Slow DB Query) for another round.
 
 ## ✅ Checkpoint
 
-You injected a failure, ran a multi-agent investigation, validated the root cause against ground truth, and produced a shareable incident summary — the full "what's happening → what do I do" loop.
+You investigated a real injected failure, ran a multi-agent investigation, validated the root cause against ground truth, and produced a shareable incident summary — the full "what's happening → what do I do" loop.
 
 ## Discussion
 
